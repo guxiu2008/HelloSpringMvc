@@ -12,3 +12,10 @@ springmvc
     springmvc-servlet.xml：
         1）初步认为是control层和view层关联的配置文件
         2）详细解释可以参考网页：https://blog.csdn.net/zhang_jane_1987/article/details/80021166
+2、代码编写
+    controller层：
+        1）新建的Controller类，在类的上方需要添加@Controller注解，springmvc-servlet.xml配置文件会进行扫描
+        2）成员方法上使用@RequestMapping注解，webapp会根据用户输入的url内容寻找各个Controller类中对应注解的内容，并匹配使用对应的方法进行处理
+        3）Model实例是Controller类成员方法的形参，通过Model对象的addAttribute方法可以向前台页面传输对应的key/value，其中value可以是对象
+3、Spring的依赖配置
+    无论什么情况下，spring相关的pom依赖版本都必须保持一致，否则会有很多奇怪的异常，例如配置文件的读取存在权限异常、某些类加载失败之类
